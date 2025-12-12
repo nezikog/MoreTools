@@ -1,0 +1,41 @@
+@import './variables';
+
+//BACKGROUNDS
+@mixin BGbody{
+    background-image: url($back-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+//ACTIONS
+@mixin lighingButton{
+    box-shadow: 0px 0px 13px 5px rgba(255, 255, 255, 0.25);
+}
+
+@mixin yellowText{
+    color: $base-color-yellow;
+}
+
+@mixin blueText{
+    color: $base-color-blue;
+}
+
+
+@mixin logo{
+    width: 57em;
+    height: 7em;
+    color: $white;
+}
+
+@mixin lupa{
+    width: 4em;
+}
+
+@mixin trans{
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+@mixin box-shadow-translate{
+    box-shadow: 0px 13px 5px rgba(255, 255, 255, 0.25)
+}
