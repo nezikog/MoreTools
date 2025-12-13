@@ -63,17 +63,18 @@
     .inputs{
         display: flex;
         flex-direction: column;
+        gap: 1.5em;
         text-align: center;
         color: $base-color-yellow;
     }
 
     input{
-        padding: .5em 4em;
+        padding: 1em 4em;
         // text-align: ;
         border-radius: 20em;
         transition: border-radius 2s ease;
         background-color: transparent;
-        border: 1px solid white;
+        border: .3em solid rgb(255,255,255);
     }
 
     input:focus{
