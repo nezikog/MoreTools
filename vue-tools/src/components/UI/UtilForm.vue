@@ -17,6 +17,9 @@
 
         buttonColor: {type: String, default: "#ffffff"}
     });
+
+    const customPadding = '5px 1px';
+    const cusomFont = '24px';
 </script>
 
 <template>
@@ -29,13 +32,62 @@
             <input type="password" :placeholder="password" name="password">
         </div>
 
-        <Button :bg-color="buttonColor" :text="buttonText" @click="$emit('submit')"></Button>
+        <Button :font="cusomFont" :padding="customPadding" :bg-color="buttonColor" :text="buttonText" @click="$emit('submit')"></Button>
 
-        <p>{{ footerText }}</p>
+        <a href="#">{{ footerText }}</a>
     </form>
 </template>
 
 <style lang='scss' scoped>
-    
+    @import '../../assets/styles/mixins.scss';
+    @import '../../assets/styles/variables.scss';
+    @import '../../assets/styles/main.scss';
+
+    form{
+        background-color: none;
+        border: .5em solid rgb(255,255,255);
+        border-radius: 3em;
+        display: flex;
+        flex-direction: column;
+        color: $base-color-yellow;
+        font-size: .5em;
+        width: 31em;
+        height: 37em;
+        padding: 1em 3em;
+    }
+
+    h1{
+        text-align: center;
+    }
+
+    .inputs{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        color: $base-color-yellow;
+    }
+
+    input{
+        padding: .5em 4em;
+        // text-align: ;
+        border-radius: 20em;
+        transition: border-radius 2s ease;
+        background-color: transparent;
+        border: 1px solid white;
+    }
+
+    input:focus{
+        border-radius: 1em;
+    }
+//Доделать инпуты разобраться с шириной кнопки
+    input::placeholder{
+        color: $base-color-yellow;
+        
+    }
+
+    a{
+        color: $base-color-yellow;
+    }
+
 
 </style>
