@@ -11,8 +11,8 @@
         title: {type: String, default: 'Заголовок'},
 
         username: {type: String, default: 'Логин'},
-        email: {type: String, default: 'Почта'},
-        password: {type: String, default: 'Пароль'},
+        emailL: {type: String, default: 'Почта'},
+        passwordL: {type: String, default: 'Пароль'},
 
         buttonText: {type: String, default: "Click"},
         footerText: {type: String, default: ''},
@@ -23,20 +23,25 @@
     const customPadding = '.3em 4em';
     const cusomFont = '24px';
     const emit = defineEmits(["submit", "footer-click"]);
+    
+    const login = ref('')
+    const email = ref('')
+    const password = ref('');
+
 </script>
 
 <template>
-    <form action="">
+    <form @submit.prevent>
         <div class="content">
             <h1>{{ title }}</h1>
 
             <div class="inputs">
-                <input type="text" :placeholder="username" name="login">
-                <input type="email" :placeholder="email" name="email">
-                <input type="password" :placeholder="password" name="password">
+                <input v-model="login" type="text" :placeholder="username" name="login">
+                <input v-model="email" type="email" :placeholder="emailL" name="email">
+                <input v-model="password" type="password" :placeholder="passwordL" name="password">
             </div>
 
-            <Button :font="cusomFont" :padding="customPadding" :bg-color="buttonColor" :text="buttonText" @click="$emit('submit', {login,email,password: passwordValue})"></Button>
+            <Button :font="cusomFont" :padding="customPadding" :bg-color="buttonColor" :text="buttonText" @click="emit('submit', {login,email,password})"></Button>
 
             <a href="#" @click.prevent="emit('footer-click')">{{ footerText }}</a>
         </div>

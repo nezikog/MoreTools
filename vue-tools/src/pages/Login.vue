@@ -5,8 +5,18 @@
   import { useLangStore } from '@/stores/lang'
   import { translations } from '@/data/words';
   import { computed } from 'vue';
+import { useAuthStore } from '@/stores/auth';
 
   const router = useRouter();
+  const auth = useAuthStore();
+
+  function handleClick(data){
+      const success = auth.login(data)
+      if(success){
+        router.push({name: 'home'})
+      }
+    }
+
     function goToPage(){
         router.push({name: 'register'});
     }
@@ -21,7 +31,8 @@
 <template>
   <div class="container">
      <Logo></Logo>
-     <Form :title="t.login" :username="t.name" :email="t.email" :password="t.password" :footer-text="t.noAccount" :button-text="t.buttonTextAuth" button-color="rgb(255,255,255)" @submit="handleClick" @footer-click="goToPage" ></Form>
+     <Form :title="t.login" :username="t.name" :emailL="t.email" :passwordL="t.password" :footer-text="t.noAccount" :button-text="t.buttonTextAuth" button-color="rgb(255,255,255)" @submit="handleClick" @footer-click="goToPage" ></Form>
+     <p v-if="auth.error">{{ auth.error }}</p>
   </div>
 </template>
 
