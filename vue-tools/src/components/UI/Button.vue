@@ -2,15 +2,18 @@
     import { defineProps, defineEmits } from 'vue';
 
     const props = defineProps({
-        bgColor: {type: String, default: '#ffffff'}
+        bgColor: {type: String, default: '#ffffff'},
+        padding: {type: String, default: '2em 1em'},
+        text: {type: String, default: 'Click'},
+        font: {type: String, default: '16px'}
     })
 
     const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <button v-bind:style="{backgroundColor: bgColor}" @click="emit('click')">
-        <slot></slot>
+    <button v-bind:style="{backgroundColor: bgColor, padding: padding, fontSize: font}" @click="emit('click')">
+        {{ text }}
     </button>
 </template>
 
@@ -19,21 +22,20 @@
     @import '../../assets/styles/variables.scss';
 
     button {
-        all: unset; 
+        all: unset;
         box-sizing: border-box;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.5rem 1rem;
-        border-radius: 1.8em;
-        background-color: $white; 
+        border-radius: 10em;
         color: $black; 
         outline: none; 
         box-shadow: none; 
         user-select: none; 
         transition: none; 
         font-weight: normal;
+        white-space: nowrap;
 
         &:active {
             transform: none;

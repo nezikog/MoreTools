@@ -6,7 +6,11 @@ const Registration = () => import("../pages/Registration.vue")
 
 const routes = [
   {
-    path: '/',
+    path: "/",
+    redirect: "/login"
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomePage
   },
