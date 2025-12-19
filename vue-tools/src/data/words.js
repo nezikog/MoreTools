@@ -15,7 +15,7 @@ export const translations = {
     qr: "Генератор Qr-кодов",
     pass: "Генератор паролей",
     avatar: "Генератор аватаров",
-    name: "Генератор имен"
+    names: "Генератор имен"
   },
   en: {
     login: 'Log In',
@@ -33,6 +33,6 @@ export const translations = {
     qr: "Qr code generator",
     pass: "Password generator",
     avatar: "Avatar generator",
-    name: "Name generator"
+    names: "Name generator"
   }
 }

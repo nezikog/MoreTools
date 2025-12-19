@@ -3,6 +3,7 @@
 <script setup>
     import { defineEmits, defineProps } from 'vue';
 
+
     const emit = defineEmits("click")
 
     const props = defineProps({
@@ -33,8 +34,8 @@
 </template>
 
 <style lang='scss' scoped>
-    @import '../../assets/styles/mixins.scss';
-    @import '../../assets/styles/variables.scss';
+    @import '../../assets/styles/mixins';
+    @import '../../assets/styles/variables';
 
     .content{
         width: 95%;

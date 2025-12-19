@@ -6,6 +6,7 @@
   import { useRouter } from 'vue-router';
   import { useLangStore } from '@/stores/lang'
   import { translations } from '@/data/words';
+  import { computed } from 'vue';
 
   const router = useRouter();
   const lang = useLangStore()
@@ -15,6 +16,7 @@
   function goToHome(){
     router.push({name: "home"})
   }
+
 </script>
 
 <template>
