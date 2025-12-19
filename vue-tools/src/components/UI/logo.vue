@@ -1,9 +1,10 @@
 <script setup>
-
+  import { defineEmits } from 'vue';
+  const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <div class="content">
+    <div class="content" @click="emit('click')">
         
             <div class="text">
             <p>
@@ -20,12 +21,12 @@
     @import '../../assets/styles/mixins.scss';
     @import '../../assets/styles/variables.scss';
 
-    .content {
+.content {
   width: 50%;
   height: 4em;
   background-color: $white;
   border-radius: 25rem;
-
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;

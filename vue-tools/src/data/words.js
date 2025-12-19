@@ -11,7 +11,11 @@ export const translations = {
     buttonTextReg: "Регистрация",
     errorLog: "Ошибка! Некорректный логин. В логине допустимы буквы латинского алфавита, цифры, нижние подчеркивание",
     errorEmail: "Ошибка! Некорректная почта. Почта должна быть формата example@домен.расширение",
-    errorPassword: "Ошибка! Некорректный пароль. В пароле должно быть минимум 6 символов"
+    errorPassword: "Ошибка! Некорректный пароль. В пароле должно быть минимум 6 символов",
+    qr: "Генератор Qr-кодов",
+    pass: "Генератор паролей",
+    avatar: "Генератор аватаров",
+    name: "Генератор имен"
   },
   en: {
     login: 'Log In',
@@ -25,6 +29,10 @@ export const translations = {
     buttonTextReg: "Sign Up",
     errorLog: "Error! Invalid login. The login must contain Latin letters, numbers, and underscores.",
     errorEmail: "Error! Invalid email. Email must be in the format example@domain.extension",
-    errorPassword: "Error! Incorrect password. Password must be at least 6 characters long."
+    errorPassword: "Error! Incorrect password. Password must be at least 6 characters long.",
+    qr: "Qr code generator",
+    pass: "Password generator",
+    avatar: "Avatar generator",
+    name: "Name generator"
   }
 }

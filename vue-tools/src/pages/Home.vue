@@ -1,11 +1,40 @@
-<script setup></script>
+<!-- Решить проблему с переводом -->
+
+<script setup>
+  import Logo from '@/components/UI/logo.vue';
+  import labelOfFunctions from '@/components/UI/labelOfFunctions.vue';
+  import { useRouter } from 'vue-router';
+  import { useLangStore } from '@/stores/lang'
+  import { translations } from '@/data/words';
+
+  const router = useRouter();
+  const lang = useLangStore()
+  const t = computed(() => translations[lang.current]);
+
+
+  function goToHome(){
+    router.push({name: "home"})
+  }
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="container">
+    <Logo id="logo" @click="goToHome"></Logo>
+    <labelOfFunctions :qr="t.qr" :pass="t.pass" :avatar="t.avatar" :names="t.names"></labelOfFunctions>
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+  @import '../assets/styles/mixins.scss';
+  @import '../assets/styles/variables.scss';
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 4em;
+  }
+
+</style>

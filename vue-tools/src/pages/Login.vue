@@ -30,7 +30,7 @@ import { useAuthStore } from '@/stores/auth';
 
 <template>
   <div class="container">
-     <Logo></Logo>
+     <Logo id="logo"></Logo>
      <Form :title="t.login" :username="t.name" :emailL="t.email" :passwordL="t.password" :footer-text="t.noAccount" :button-text="t.buttonTextAuth" button-color="rgb(255,255,255)" @submit="handleClick" @footer-click="goToPage" ></Form>
      <p v-if="auth.error">{{ auth.error }}</p>
   </div>
@@ -47,6 +47,10 @@ import { useAuthStore } from '@/stores/auth';
     justify-content: center;
     gap: 3em;
     margin-top: 4em;
+  }
+
+  #logo{
+    cursor: default;
   }
 
 </style>
