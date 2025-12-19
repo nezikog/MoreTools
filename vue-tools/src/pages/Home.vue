@@ -1,4 +1,4 @@
-<!-- Решить проблему с переводом -->
+
 
 <script setup>
   import Logo from '@/components/UI/logo.vue';

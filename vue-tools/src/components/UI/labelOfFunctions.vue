@@ -1,4 +1,4 @@
-<!-- Емиты нужны для переходов на страницы инструментов. Добавить картинки -->
+
 
 <script setup>
     import { defineEmits, defineProps } from 'vue';
@@ -18,16 +18,20 @@
     <div class="content">
         <div class="functions">
             <div @click="emit('click')" id="qr">
-                <h1>{{ qr }}</h1>
+                <h4>{{ qr }}</h4>
+                <img src="./../vendor/images/qr.svg" alt="Qr-коды">
             </div>
             <div @click="emit('click')" id="pass">
-                <h1>{{ pass }}</h1>
+                <h4>{{ pass }}</h4>
+                <img src="./../vendor/images/pass.svg" alt="Пароли">
             </div>
             <div @click="emit('click')" id="avatar">
-                <h1>{{ avatar }}</h1>
+                <h4>{{ avatar }}</h4>
+                <img src="./../vendor/images/account.svg" alt="Аватары">
             </div>
             <div @click="emit('click')" id="name">
-                <h1>{{ names }}</h1>
+                <h4>{{ names }}</h4>
+                <img src="./../vendor/images/name.svg" alt="Имена">
             </div>
         </div>
     </div>
@@ -58,6 +62,13 @@
         height: 100%;
         background: $white;
         border-radius: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        cursor: pointer;
+        user-select: none;
     }
 
     #qr, #name{
@@ -67,5 +78,14 @@
     #pass, #avatar{
         border: .3em solid $base-color-blue;
     }
+
+
+
+    // h4{
+    //     text-align: center;
+    //     margin: 1em 0;
+    // }
+
+
 
 </style>
