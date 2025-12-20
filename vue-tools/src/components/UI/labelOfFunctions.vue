@@ -1,8 +1,8 @@
 
 
 <script setup>
-    import { defineEmits, defineProps } from 'vue';
-
+    import { defineProps } from 'vue';
+    import { useRouter } from 'vue-router';
 
     const emit = defineEmits("click")
 
@@ -12,24 +12,31 @@
         avatar: {type: String, default: "Генератор аватаров"},
         names: {type: String, default: "Генератор имен"},
     });
+
+    const router = useRouter();
+
+    function goToPage(name){
+        router.push({name: name})
+    }
+
 </script>
 
 <template>
     <div class="content">
         <div class="functions">
-            <div @click="emit('click')" id="qr">
+            <div @click="goToPage('qr')" id="qr">
                 <h4>{{ qr }}</h4>
                 <img src="./../vendor/images/qr.svg" alt="Qr-коды">
             </div>
-            <div @click="emit('click')" id="pass">
+            <div @click="goToPage('pass')" id="pass">
                 <h4>{{ pass }}</h4>
                 <img src="./../vendor/images/pass.svg" alt="Пароли">
             </div>
-            <div @click="emit('click')" id="avatar">
+            <div @click="goToPage('avatar')" id="avatar">
                 <h4>{{ avatar }}</h4>
                 <img src="./../vendor/images/account.svg" alt="Аватары">
             </div>
-            <div @click="emit('click')" id="name">
+            <div @click="goToPage('name')" id="name">
                 <h4>{{ names }}</h4>
                 <img src="./../vendor/images/name.svg" alt="Имена">
             </div>
