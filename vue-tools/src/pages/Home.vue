@@ -1,4 +1,4 @@
-
+<!--dasdas -->
 
 <script setup>
   import Logo from '@/components/UI/logo.vue';
@@ -16,6 +16,8 @@
   function goToHome(){
     router.push({name: "home"})
   }
+
+
 
 </script>
 
