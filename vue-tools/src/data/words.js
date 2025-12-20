@@ -15,7 +15,10 @@ export const translations = {
     qr: "Генератор Qr-кодов",
     pass: "Генератор паролей",
     avatar: "Генератор аватаров",
-    names: "Генератор имен"
+    names: "Генератор имен",
+    color: "Цвет",
+    createQr: "Создать Qr",
+    downloadPng: "Скачать .PNG"
   },
   en: {
     login: 'Log In',
@@ -33,6 +36,9 @@ export const translations = {
     qr: "Qr code generator",
     pass: "Password generator",
     avatar: "Avatar generator",
-    names: "Name generator"
+    names: "Name generator",
+    color: "Color",
+    createQr: "Create Qr",
+    downloadPng: "Download .PNG"
   }
 }
