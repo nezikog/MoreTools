@@ -1,3 +1,5 @@
+<!--dasdasdas-->
+
 <script setup>
     import { defineProps, defineEmits } from 'vue';
 
@@ -5,14 +7,15 @@
         bgColor: {type: String, default: '#ffffff'},
         padding: {type: String, default: '2em 1em'},
         text: {type: String, default: 'Click'},
-        font: {type: String, default: '16px'}
+        font: {type: String, default: '16px'},
+        border: {type: String, default: '1px solid black'}
     })
 
     const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <button v-bind:style="{backgroundColor: bgColor, padding: padding, fontSize: font}" @click="emit('click')">
+    <button v-bind:style="{border: border, backgroundColor: bgColor, padding: padding, fontSize: font}" @click="emit('click')">
         {{ text }}
     </button>
 </template>
@@ -22,6 +25,7 @@
     @import '../../assets/styles/variables.scss';
 
     button {
+        width: 100%;
         all: unset;
         box-sizing: border-box;
         cursor: pointer;
