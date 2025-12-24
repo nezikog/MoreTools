@@ -5,7 +5,6 @@
 
     const props = defineProps({
         bgColor: {type: String, default: '#ffffff'},
-        padding: {type: String, default: '2em 1em'},
         text: {type: String, default: 'Click'},
         font: {type: String, default: '16px'},
         border: {type: String, default: '1px solid black'}
@@ -15,7 +14,7 @@
 </script>
 
 <template>
-    <button v-bind:style="{border: border, backgroundColor: bgColor, padding: padding, fontSize: font}" @click="emit('click')">
+    <button class="btn" v-bind:style="{border: border, backgroundColor: bgColor, fontSize: font}" @click="emit('click')">
         {{ text }}
     </button>
 </template>
@@ -29,7 +28,7 @@
         all: unset;
         box-sizing: border-box;
         cursor: pointer;
-        display: inline-flex;
+        display: block;
         align-items: center;
         justify-content: center;
         border-radius: 10em;

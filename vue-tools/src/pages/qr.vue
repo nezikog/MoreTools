@@ -1,18 +1,79 @@
 <script setup>
-    import {defineProps} from 'vue';
-    import { useLangStore } from '@/stores/lang'
-    import { translations } from '@/data/words';
-    import { computed } from 'vue';
-    import Button from '@/components/UI/Button.vue';
-    const lang = useLangStore()
-    const t = computed(() => translations[lang.current]);
+import { ref, computed } from 'vue';
+import { useLangStore } from '@/stores/lang';
+import { translations } from '@/data/words';
+import Button from '@/components/UI/Button.vue';
+import Logo from '@/components/UI/logo.vue';
+import { getQrCode } from '@/api/QrApi';
 
-    const props = defineProps({
-        title: {type: String, default: 'Генератор'},
-    });
+const lang = useLangStore();
+const t = computed(() => translations[lang.current]);
 
-    import Logo from '@/components/UI/logo.vue';
+
+
+const url = ref('');
+const color = ref('#000000');
+const size = ref(200);
+const qrSrc = ref(null);
+const loading = ref(false);
+
+const generateQr = async () => {
+    if (!url.value) return;
+
+    loading.value = true;
+
+    try {
+        const response = await getQrCode({
+            data: url.value,
+            size: `${size.value}x${size.value}`,
+            color: color.value.replace('#', ''),
+            bgcolor: 'ffffff'
+        });
+
+        qrSrc.value = URL.createObjectURL(response.data);
+    } catch (e) {
+        console.error('QR generation error', e);
+    } finally {
+        loading.value = false;
+    }
+};
+
+const downloadQr = () => {
+    if (!qrSrc.value) return;
+
+    const link = document.createElement('a');
+    link.href = qrSrc.value;
+    link.download = 'qr-code.png';
+    link.click();
+};
+
+const downloadQrByFormat = async (format) => {
+    if (!url.value) return;
+
+    try {
+        const response = await getQrCode({
+            data: url.value,
+            size: `${size.value}x${size.value}`,
+            color: color.value.replace('#', ''),
+            bgcolor: 'ffffff',
+            format
+        });
+
+        const blobUrl = URL.createObjectURL(response.data);
+
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = `qr-code.${format}`;
+        link.click();
+
+        URL.revokeObjectURL(blobUrl);
+    } catch (e) {
+        console.error(`Download ${format} error`, e);
+    }
+};
+
 </script>
+
 
 <template>
     <div class="content">
@@ -23,20 +84,54 @@
 
             <div class="settings">
                 <p>URL</p>
-                <input class="url" placeholder="https://www.example.example/" type="text">
+                <input class="url" v-model="url" placeholder="https://www.example.example/" type="text">
                 <p>{{t.color}}</p>
-                <input class="color" placeholder="#FFFFFF" type="text">
+                <input class="color" v-model="color" placeholder="#FFFFFF" type="text">
+
+                <p>{{ t.size }}: {{ size }}px</p>
+                    <input
+                        class="slider"
+                        type="range"
+                        min="100"
+                        max="600"
+                        step="50"
+                        v-model="size"
+                    />
             </div>
             <div class="result">
-                <img src="./../../vendor/images/qr.svg" alt="Qr-коды">
-                <Button font=".8em" border=".4em solid #3414AC" padding=".5em" bgColor="transparent" :text="t.createQr"></Button>
-                <Button font=".8em" border=".4em solid #3414AC" padding=".5em" bgColor="transparent" :text="t.downloadPng"></Button>
+                <img
+                        v-if="qrSrc"
+                        :src="qrSrc"
+                        alt="QR code"
+                    />
+                    <img
+                        v-else
+                        src="./../components/vendor/images/qr.svg"
+                        alt="Qr placeholder"
+                    />
 
+                    <Button
+                        font=".8em"
+                        border=".4em solid #3414AC"
+                        bgColor="transparent"
+                        :text="t.createQr"
+                        @click="generateQr"
+                    ></Button>
+
+                    <Button
+                        font=".8em"
+                        border=".4em solid #3414AC"
+                        bgColor="transparent"
+                        :text="t.downloadPng"
+                        :disabled="!qrSrc"
+                        @click="downloadQr"
+                    ></Button>
+                <!-- Наладить padding у button и доделать в принципе страницу -->
                 <div class="formats">
-                    <div class="svg">
+                    <div class="svg" @click="downloadQrByFormat('svg')">
                         <h4>.SVG</h4>
                     </div>
-                    <div class="epf">
+                    <div class="epf" @click="downloadQrByFormat('epf')">
                         <h4>.EPF</h4>
                     </div>
                 </div>
@@ -84,6 +179,12 @@
         gap: 2em;
     }
 
+    .slider {
+    width: 100%;
+    margin-top: .5em;
+    accent-color: $base-color-blue;
+}
+
     .result, .settings{
         height: 15rem;
         background: transparent;
@@ -129,6 +230,19 @@
         justify-content: center;
         gap: .5em;
         padding: 0 1em;
+        align-items: center;
+    }
+
+    .btn{
+        width: 100%;
+        padding: .5em;
+        text-align: center;
+    }
+
+    img{
+        width: 5em;
+        text-align: center;
+        margin-top: 1em;
     }
 
     .formats{
@@ -148,6 +262,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
     }
 
 
