@@ -5,6 +5,9 @@ import { translations } from '@/data/words';
 import Button from '@/components/UI/Button.vue';
 import Logo from '@/components/UI/logo.vue';
 import { getQrCode } from '@/api/QrApi';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const lang = useLangStore();
 const t = computed(() => translations[lang.current]);
@@ -77,7 +80,7 @@ const downloadQrByFormat = async (format) => {
 
 <template>
     <div class="content">
-        <Logo></Logo>
+        <Logo @click="router.push('/home')"></Logo>
         <div class="container">
                     <h1>{{t.qr}}</h1>
         <div class="config">

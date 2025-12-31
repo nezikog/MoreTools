@@ -7,14 +7,15 @@
         bgColor: {type: String, default: '#ffffff'},
         text: {type: String, default: 'Click'},
         font: {type: String, default: '16px'},
-        border: {type: String, default: '1px solid black'}
+        border: {type: String, default: 'none'},
+        padding: {type: String, default: '0'}
     })
 
     const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <button class="btn" v-bind:style="{border: border, backgroundColor: bgColor, fontSize: font}" @click="emit('click')">
+    <button class="btn" v-bind:style="{border: border, backgroundColor: bgColor, fontSize: font, padding: padding}" @click="emit('click')">
         {{ text }}
     </button>
 </template>
@@ -25,7 +26,9 @@
 
     button {
         width: 100%;
-        all: unset;
+        appearance: none;
+        border: none;
+        background: none;
         box-sizing: border-box;
         cursor: pointer;
         display: block;

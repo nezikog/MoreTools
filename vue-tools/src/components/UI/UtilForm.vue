@@ -20,7 +20,7 @@
         buttonColor: {type: String, default: "#ffffff"}
     });
 
-    const customPadding = '.3em 4em';
+    const customPadding = '.5em';
     const cusomFont = '24px';
     const emit = defineEmits(["submit", "footer-click"]);
     
