@@ -92,14 +92,15 @@ const downloadQrByFormat = async (format) => {
                 <input class="color" v-model="color" placeholder="#FFFFFF" type="text">
 
                 <p>{{ t.size }}: {{ size }}px</p>
+                <div class="slider">
                     <input
-                        class="slider"
                         type="range"
                         min="100"
                         max="600"
                         step="50"
                         v-model="size"
                     />
+                </div>
             </div>
             <div class="result">
                 <img
@@ -138,7 +139,6 @@ const downloadQrByFormat = async (format) => {
                         <h4>.EPF</h4>
                     </div>
                 </div>
-                <div class="slider"></div> <!-- для размеров потом настроить -->
             </div>
         </div>
     </div>
@@ -174,22 +174,49 @@ const downloadQrByFormat = async (format) => {
         top: -.5em;
     }
 
-    .config{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2em;
-    }
+    .config {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 
-    .slider {
-    width: 100%;
-    margin-top: .5em;
-    accent-color: $base-color-blue;
+  height: 15rem;           /* ← ДОБАВИТЬ */
+  align-items: flex-start; /* ← ЗАМЕНИТЬ center */
 }
 
+    .slider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  accent-color: $base-color-blue;
+  border: 0.3em solid $base-color-yellow;
+  padding: 0.8em;
+  border-radius: 5em;
+}
+
+.slider input[type='range'] {
+  appearance: none;
+  width: 100%;
+  height: 0.8em;
+  background: $base-color-blue;
+  border-radius: 1em;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider input[type='range']::-webkit-slider-thumb {
+  appearance: none; /* обязательно */
+  width: 2em; /* ширина кружка */
+  height: 2em; /* высота кружка */
+  background: $base-color-yellow; /* цвет кружка */
+  border-radius: 50%; /* чтобы был круглый */
+  cursor: pointer;
+}
+
+
     .result, .settings{
-        height: 15rem;
+        height: 100%;
         background: transparent;
         border-radius: 2em;
     }
