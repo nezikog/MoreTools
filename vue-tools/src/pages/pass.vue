@@ -12,7 +12,7 @@ const router = useRouter()
 const lang = useLangStore()
 const t = computed(() => translations[lang.current])
 
-const selectedVersion = ref(null)
+const selectedVersion = ref('v1')
 
 function selectVersion(version) {
   selectedVersion.value = version
