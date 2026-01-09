@@ -58,5 +58,30 @@
   color: $base-color-blue;
 }
 
+@media(max-width: 1000px){
+  span{
+    font-size: .8em;
+  }
+  .icon{
+    width: 1em;
+  }
+}
+@media(max-width: 700px){
+  span{
+    font-size: .6em;
+  }
+  .icon{
+    width: .8em;
+  }
+}
+
+@media(max-width: 500){
+  span{
+    font-size: .4em;
+  }
+  .icon{
+    width: .6em;
+  }
+}
 
 </style>

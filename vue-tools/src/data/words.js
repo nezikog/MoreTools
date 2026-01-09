@@ -48,6 +48,7 @@ export const translations = {
     finish: "Закончить",
     generate: "Сгенерировать аватар",
     generateNick: "Сгенерировать никнейм",
+    fields: "Все поля обязательны для заполнения",
   },
   en: {
     login: 'Log In',
@@ -98,5 +99,6 @@ export const translations = {
     finish: "Finish",
     generate: "Generate avatar",
     generateNick: "Generate nickname",
+    fields: "All fields are required",
   },
 }

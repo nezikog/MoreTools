@@ -11,7 +11,7 @@ const lang = useLangStore();
 <style lang="scss" scoped>
     @import './assets/styles/mixins';
     @import './assets/styles/variables';
-
+    
     .translate-button {
         all: unset;
         padding: .7em;

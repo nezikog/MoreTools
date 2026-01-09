@@ -200,7 +200,7 @@ async function generatePasswords() {
 
 .container {
   width: 95%;
-  height: 24rem;
+  height: 28rem;
   background-color: $white;
   border-radius: 2em;
   padding: 3em 6em;
@@ -231,6 +231,7 @@ h1 {
 
 .settings {
   width: 100%;
+  height: 100%;
   border: 0.3em solid $base-color-blue;
   display: flex;
   flex-direction: column;
@@ -396,7 +397,7 @@ input[type='radio'] {
   z-index: 10;
 }
 
-.alertEraser{
+.alertEraser {
   left: 50%;
 }
 
@@ -421,5 +422,14 @@ input[type='radio'] {
 .edit-item:hover .alertCopy,
 .edit-item:hover .alertEraser {
   opacity: 1;
+}
+
+@media (max-width: 1440px) {
+  .u-v p {
+    letter-spacing: 0;
+  }
+  .other {
+    column-gap: 0.2em;
+  }
 }
 </style>
