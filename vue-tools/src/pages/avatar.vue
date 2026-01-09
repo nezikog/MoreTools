@@ -10,7 +10,6 @@ import { generateAvatar } from '@/api/AvatarsApi'
 const randomAvatar = ref('')
 const createdAvatar = ref('')
 
-// Возможные варианты частей лица
 const browsOptions = [
   'variant01',
   'variant02',
@@ -30,16 +29,14 @@ const browsOptions = [
 const eyesOptions = ['variant01', 'variant02', 'variant03', 'variant04', 'variant05']
 const lipsOptions = ['variant01', 'variant02', 'variant03', 'variant04', 'variant05']
 
-// Генерация случайного числа в диапазоне
 function randomIndex(arr) {
   return Math.floor(Math.random() * arr.length)
 }
 
-// Функция генерации рандомного аватара
 async function generateRandomAvatar() {
   try {
     const params = {
-      seed: 'random-' + Math.random().toString(36).substr(2, 9), // уникальный seed
+      seed: 'random-' + Math.random().toString(36).substr(2, 9), 
       brows: browsOptions[randomIndex(browsOptions)],
       eyes: eyesOptions[randomIndex(eyesOptions)],
       lips: lipsOptions[randomIndex(lipsOptions)],
@@ -178,11 +175,11 @@ h1 {
 }
 
 .slider input[type='range']::-webkit-slider-thumb {
-  appearance: none; /* обязательно */
-  width: 2em; /* ширина кружка */
-  height: 2em; /* высота кружка */
-  background: $base-color-yellow; /* цвет кружка */
-  border-radius: 50%; /* чтобы был круглый */
+  appearance: none;
+  width: 2em; 
+  height: 2em;
+  background: $base-color-yellow; 
+  border-radius: 50%;
   cursor: pointer;
 }
 

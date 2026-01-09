@@ -1,7 +1,3 @@
-<!-- Сделать тчтобы можно было выбирать то что вводишь в поля. Например выбор между регистрацией и входом и тд -->
-<!-- Настро -->
-<!-- ddas -->
-
 <script setup>
     import { defineProps, defineEmits } from 'vue';
     import Button from '@/components/UI/Button.vue';
@@ -109,7 +105,7 @@
         outline: none;
         box-shadow: none;
     }
-//Доделать инпуты разобраться с шириной кнопки
+
     input::placeholder{
         color: $base-color-yellow !important;
         font-size: 1.2em;

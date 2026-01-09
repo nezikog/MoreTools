@@ -1,5 +1,3 @@
-<!--dasdas -->
-
 <script setup>
 import Logo from '@/components/UI/logo.vue'
 import labelOfFunctions from '@/components/UI/labelOfFunctions.vue'

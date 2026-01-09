@@ -33,7 +33,6 @@ function rotate() {
 }
 
 const password = reactive({
-  //Сделать чтобы суда добавлялись по счету сначала 0, те пароли которые были сгенерированы пользователем, но как только он нажал кнопку удалить на каком нибудь пароле то он удаляется
 })
 
 const copied = reactive({})
@@ -153,7 +152,6 @@ async function generatePasswords() {
           </div>
         </div>
         <div class="result">
-          <!-- Заготовка оболочки:-->
 
           <div v-for="(value, key) in password" :key="key" :class="`pass-${key}`" class="pass-1">
             <p>{{ value }}</p>
@@ -220,7 +218,7 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 2em;
-  align-items: flex-start; /* ← ДОБАВЛЕНО */
+  align-items: flex-start;
 }
 
 .result,
@@ -261,11 +259,11 @@ h1 {
 }
 
 .slider input[type='range']::-webkit-slider-thumb {
-  appearance: none; /* обязательно */
-  width: 2em; /* ширина кружка */
-  height: 2em; /* высота кружка */
-  background: $base-color-yellow; /* цвет кружка */
-  border-radius: 50%; /* чтобы был круглый */
+  appearance: none; 
+  width: 2em; 
+  height: 2em;
+  background: $base-color-yellow; 
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -418,7 +416,6 @@ input[type='radio'] {
   z-index: 10;
 }
 
-/* ГЛАВНОЕ */
 .edit-item:hover .alertCopy,
 .edit-item:hover .alertEraser {
   opacity: 1;

@@ -24,6 +24,5 @@ export async function getUuids(version, count) {
 
   const response = await axios.get(endpoint)
 
-  // API возвращает текст, где UUID через перенос строки
   return response.data.split('\n').filter(Boolean)
 }

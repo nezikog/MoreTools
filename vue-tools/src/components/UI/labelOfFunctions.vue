@@ -1,5 +1,3 @@
-cd<!--adasdas-->
-
 <script setup>
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
@@ -89,11 +87,6 @@ function goToPage(name) {
 #avatar {
   border: 0.3em solid $base-color-blue;
 }
-
-// h4{
-//     text-align: center;
-//     margin: 1em 0;
-// }
 
 @media (max-width: 1800px) {
   .functions {

@@ -164,11 +164,11 @@ h1 {
 }
 
 .slider input[type='range']::-webkit-slider-thumb {
-  appearance: none; /* обязательно */
-  width: 2em; /* ширина кружка */
-  height: 2em; /* высота кружка */
-  background: $base-color-yellow; /* цвет кружка */
-  border-radius: 50%; /* чтобы был круглый */
+  appearance: none;
+  width: 2em;
+  height: 2em;
+  background: $base-color-yellow;
+  border-radius: 50%; 
   cursor: pointer;
 }
 

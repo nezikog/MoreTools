@@ -130,7 +130,7 @@ const downloadQrByFormat = async (format) => {
                         :disabled="!qrSrc"
                         @click="downloadQr"
                     ></Button>
-                <!-- Наладить padding у button и доделать в принципе страницу -->
+                    
                 <div class="formats">
                     <div class="svg" @click="downloadQrByFormat('svg')">
                         <h4>.SVG</h4>
@@ -180,8 +180,8 @@ const downloadQrByFormat = async (format) => {
   justify-content: center;
   gap: 2em;
 
-  height: 15rem;           /* ← ДОБАВИТЬ */
-  align-items: flex-start; /* ← ЗАМЕНИТЬ center */
+  height: 15rem;          
+  align-items: flex-start; 
 }
 
     .slider {
@@ -206,11 +206,11 @@ const downloadQrByFormat = async (format) => {
 }
 
 .slider input[type='range']::-webkit-slider-thumb {
-  appearance: none; /* обязательно */
-  width: 2em; /* ширина кружка */
-  height: 2em; /* высота кружка */
-  background: $base-color-yellow; /* цвет кружка */
-  border-radius: 50%; /* чтобы был круглый */
+  appearance: none; 
+  width: 2em;
+  height: 2em;
+  background: $base-color-yellow;
+  border-radius: 50%;
   cursor: pointer;
 }
 
