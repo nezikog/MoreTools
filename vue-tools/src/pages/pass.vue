@@ -113,7 +113,7 @@ async function generatePasswords() {
                     <p>Version1</p>
                   </div>
                   <input
-                    type="checkbox"
+                    type="radio"
                     :checked="selectedVersion === 'v1'"
                     @change="selectVersion('v1')"
                   />
@@ -123,7 +123,7 @@ async function generatePasswords() {
                     <p>Version2</p>
                   </div>
                   <input
-                    type="checkbox"
+                    type="radio"
                     :checked="selectedVersion === 'v4'"
                     @change="selectVersion('v4')"
                   />
@@ -133,7 +133,7 @@ async function generatePasswords() {
                     <p>Version3</p>
                   </div>
                   <input
-                    type="checkbox"
+                    type="radio"
                     :checked="selectedVersion === 'v7'"
                     @change="selectVersion('v7')"
                   />
@@ -143,7 +143,7 @@ async function generatePasswords() {
                     <p>Version4</p>
                   </div>
                   <input
-                    type="checkbox"
+                    type="radio"
                     :checked="selectedVersion === 'guid'"
                     @change="selectVersion('guid')"
                   />
@@ -318,7 +318,7 @@ h1 {
   padding: 0.2em;
 }
 
-input[type='checkbox'] {
+input[type='radio'] {
   accent-color: $base-color-yellow;
   border: 0.2em solid black;
   width: 1.5em;
