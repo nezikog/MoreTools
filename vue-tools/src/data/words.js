@@ -47,6 +47,7 @@ export const translations = {
     chooseScale: "Выберите масштаб",
     finish: "Закончить",
     generate: "Сгенерировать аватар",
+    generateNick: "Сгенерировать никнейм",
   },
   en: {
     login: 'Log In',
@@ -96,5 +97,6 @@ export const translations = {
     chooseScale: "Select scale",
     finish: "Finish",
     generate: "Generate avatar",
+    generateNick: "Generate nickname",
   },
 }
