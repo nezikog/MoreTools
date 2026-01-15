@@ -278,4 +278,11 @@ h1 {
 .edit-item:hover .alertEraser {
   opacity: 1;
 }
+
+@media(max-height: 830px){
+  .container{
+    height: 20rem;
+  }
+}
+
 </style>

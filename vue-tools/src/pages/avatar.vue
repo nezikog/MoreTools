@@ -245,4 +245,11 @@ img {
   justify-content: center;
   cursor: pointer;
 }
+
+@media(max-height: 830px){
+  .container{
+    height: 20rem;
+  }
+}
+
 </style>

@@ -4,7 +4,7 @@ import { useLangStore } from '@/stores/lang'
 import { translations } from '@/data/words'
 import Button from '@/components/UI/Button.vue'
 import Logo from '@/components/UI/logo.vue'
-import { getUuids } from '@/API/UuidApi'
+import { getUuids } from '@/api/UuidApi'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -186,6 +186,7 @@ async function generatePasswords() {
 <style lang="scss" scoped>
 @import '../assets/styles/mixins';
 @import '../assets/styles/variables';
+@import '../assets/styles/mobile.scss';
 
 .content {
   display: flex;
@@ -429,5 +430,12 @@ input[type='radio'] {
     column-gap: 0.2em;
   }
 }
+
+@media(max-height: 940px){
+  .container{
+    height: 24rem;
+  }
+}
+
 </style>
 

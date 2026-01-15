@@ -295,6 +295,10 @@ const downloadQrByFormat = async (format) => {
         cursor: pointer;
     }
 
-
+    @media(max-height: 830px){
+        .container{
+            height: 20rem;
+        }
+    }
 
 </style>

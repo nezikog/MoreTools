@@ -180,4 +180,11 @@ function goToPage(name) {
     width: 4em;
   }
 }
+
+@media(max-height: 830px){
+  .content{
+    height: 22rem;
+  }
+}
+
 </style>
