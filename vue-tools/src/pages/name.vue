@@ -9,14 +9,7 @@ import { generateName } from '@/api/nameApi'
 
 const randomName = ref('')
 
-async function generateUsername() {
-  randomName.value = await generateName()
-}
-
 async function handle() {
-  // await generateUsername()
-  // addName(randomName.value)
-  // console.log(names)
   for (let i = 0; i < count.value; i++) {
     const newName = await generateName()
     addName(newName)

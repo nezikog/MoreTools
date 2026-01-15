@@ -16,6 +16,7 @@ html{
 body{
     font-family: $base-font;
     @include BGbody;
+    overflow: hidden;
 }
 
 a{

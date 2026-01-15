@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {ref, onMounted} from 'vue'
 
 export async function generateAvatar(options){
     const queryString = new URLSearchParams(options).toString() 
