@@ -4,7 +4,7 @@ import { useLangStore } from '@/stores/lang'
 import { translations } from '@/data/words'
 import Button from '@/components/UI/Button.vue'
 import Logo from '@/components/UI/logo.vue'
-import { getUuids } from '@/api/UuidApi'
+import { getUuids } from '@/API/UuidApi'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -430,3 +430,4 @@ input[type='radio'] {
   }
 }
 </style>
+
